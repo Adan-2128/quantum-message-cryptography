@@ -1,0 +1,21 @@
+# --- Web / chat server ---
+flask>=3.0,<4.0
+flask-socketio>=5.3,<6.0
+python-socketio>=5.11,<6.0
+eventlet>=0.36,<0.40
+
+# --- Quantum ---
+# qiskit-ibm-runtime 0.46+ requires Qiskit 2.2+ ; pin a floor, let pip
+# pick the latest compatible patch rather than an exact old version.
+qiskit>=2.2,<3.0
+qiskit-ibm-runtime>=0.48,<1.0
+
+numpy>=1.26,<3.0
+scipy>=1.12
+
+# --- Windows-only auth deps pulled in by qiskit-ibm-runtime ---
+# NOTE: the PyPI package name is "pyspnego" even though the import
+# name is "spnego" -- never write "spnego" directly in this file.
+pyspnego>=0.10
+requests-ntlm>=1.2
+sspilib>=0.3; sys_platform == "win32"

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QChat -- Quantum-Secured Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="login-screen" class="screen">
+        <div class="login-card">
+            <h1>QChat</h1>
+            <p class="tagline">Messages secured with a BB84-distributed quantum key</p>
+            <input id="username-input" type="text" placeholder="Choose a username" maxlength="20">
+            <button id="login-btn">Enter</button>
+        </div>
+    </div>
+
+    <div id="app-screen" class="screen hidden">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="me-label">You are</span>
+                <span id="me-username"></span>
+            </div>
+            <div class="online-label">Online</div>
+            <ul id="user-list"></ul>
+        </aside>
+
+        <main class="chat-panel">
+            <div id="no-chat" class="empty-state">
+                <p>Select someone to start a quantum-secured conversation.</p>
+            </div>
+
+            <div id="active-chat" class="hidden">
+                <div class="chat-header">
+                    <span id="chat-with"></span>
+                    <span id="key-ceremony-badge" class="badge hidden"></span>
+                </div>
+
+                <div id="messages" class="messages"></div>
+
+                <div id="wire-panel" class="wire-panel">
+                    <div class="wire-title">On the wire</div>
+                    <div id="wire-content" class="wire-content">--</div>
+                </div>
+
+                <form id="send-form" class="send-form">
+                    <input id="message-input" type="text" placeholder="Type a message..." autocomplete="off">
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="chat.js"></script>
+</body>
+
+</html>
